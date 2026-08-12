@@ -1,0 +1,29 @@
+name: Verify game
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: find src -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Validate entry page
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          source = Path("index.html").read_text(encoding="utf-8")
+          HTMLParser().feed(source)
+          for marker in ("NEON CITY", "startBtn", "src/main.js"):
+              if marker not in source:
+                  raise SystemExit(f"Missing entry-page marker: {marker}")
+          print("Neon City entry page verified.")
+          PY
