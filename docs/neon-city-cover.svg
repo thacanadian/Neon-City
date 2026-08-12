@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520">
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#10162d"/><stop offset=".7" stop-color="#263a50"/><stop offset="1" stop-color="#11151d"/></linearGradient><radialGradient id="sun"><stop stop-color="#f5be78"/><stop offset="1" stop-color="#ba646c"/></radialGradient></defs>
+  <rect width="1280" height="520" rx="18" fill="url(#sky)"/>
+  <circle cx="1000" cy="135" r="96" fill="url(#sun)" opacity=".9"/>
+  <g fill="#080d17"><path d="M0 350h130V190h115v160h130V125h150v225h105V230h130v120h115V155h150v195h175v170H0z"/></g>
+  <g fill="#c17c63" opacity=".72"><path d="M40 238h56v8H40zm0 35h56v8H40zm225-95h64v8h-64zm0 38h64v8h-64zm0 38h64v8h-64zm272 30h60v8h-60zm345-73h72v8h-72zm0 38h72v8h-72z"/></g>
+  <path d="M420 520l190-170h80l190 170z" fill="#11151d"/><path d="M645 375v145" stroke="#e2b36a" stroke-width="6" stroke-dasharray="22 18"/>
+  <text x="72" y="92" fill="#d39965" font-family="DejaVu Sans Mono,monospace" font-size="14" letter-spacing="5">OPEN-WORLD BROWSER EXPERIMENT / V10.3</text>
+  <text x="66" y="198" fill="#f0eee9" font-family="DejaVu Sans,Arial,sans-serif" font-size="86" font-weight="700" letter-spacing="-3">NEON CITY</text>
+  <text x="73" y="243" fill="#9baaba" font-family="DejaVu Sans Mono,monospace" font-size="16" letter-spacing="2">DRIVE · EXPLORE · SURVIVE THE HEAT</text>
+</svg>
