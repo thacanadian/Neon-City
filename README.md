@@ -1,5 +1,9 @@
 # Neon City
 
+[![Verify game](https://github.com/thacanadian/Neon-City/actions/workflows/verify.yml/badge.svg)](https://github.com/thacanadian/Neon-City/actions/workflows/verify.yml)
+
+![Neon City cover](docs/neon-city-cover.svg)
+
 Neon City is a browser-based open-world action-game experiment built to explore interconnected game systems in plain JavaScript and Three.js.
 
 ## Highlights
