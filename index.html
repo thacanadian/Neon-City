@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Neon City V10.3 Cruise City</title><style>
+*{box-sizing:border-box} body{margin:0;overflow:hidden;background:#030610;font-family:'Courier New',monospace;cursor:crosshair;color:#0ff} canvas{display:block}
+#ui{position:fixed;left:12px;top:12px;background:rgba(0,0,0,.72);border:1px solid rgba(0,255,255,.45);padding:10px 12px;line-height:1.55;font-size:13px;min-width:285px;z-index:5;border-radius:6px;user-select:none;pointer-events:none}
+#ui b{color:white;letter-spacing:2px}.bar{height:7px;background:#222;border:1px solid #333;margin:2px 0 6px}.fill{height:100%;background:#0f0;width:100%}#ammoFill{background:#ff0}#armorFill{background:#09f}
+#cross{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);font-size:25px;text-shadow:0 0 8px #0ff;z-index:4;pointer-events:none;color:rgba(255,255,255,.82)}
+#start,#death{position:fixed;inset:0;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:10;text-align:center}#death{display:none}
+button{background:transparent;color:#0ff;border:1px solid #0ff;padding:11px 26px;font-family:inherit;letter-spacing:2px;cursor:pointer}button:hover{background:rgba(0,255,255,.1)}
+#banner{position:fixed;left:50%;top:17%;transform:translateX(-50%);font-size:22px;color:#ff0;letter-spacing:3px;text-shadow:0 0 14px #ff0;opacity:0;transition:.25s;z-index:6;pointer-events:none;white-space:nowrap}.red{color:#f44!important;text-shadow:0 0 14px #f44!important}.green{color:#0f0!important;text-shadow:0 0 14px #0f0!important}
+#mini{position:fixed;right:12px;top:12px;border:1px solid rgba(0,255,255,.45);background:rgba(0,0,0,.75);z-index:5}
+#help{position:fixed;left:12px;bottom:12px;background:rgba(0,0,0,.55);padding:8px 10px;color:rgba(255,255,255,.62);font-size:11px;z-index:5;pointer-events:none;max-width:870px}
+#errorBox{display:none;position:fixed;right:12px;bottom:58px;max-width:520px;background:rgba(60,0,0,.9);border:1px solid #f44;color:#fff;padding:12px;z-index:50;font-size:13px;line-height:1.45}
+</style></head><body>
+<div id="start"><h1>// NEON CITY V10.3 CRUISE CITY</h1><p>Verified + polished slower build with calmer movement, tuned police pressure, better loot, cleaner heat system, upgraded car visuals, and extra neon city props.</p><button id="startBtn">ENTER NEON CITY</button></div>
+<div id="death"><h1 style="color:#f44;font-size:50px;letter-spacing:6px">CAPTURED</h1><p id="deathStats"></p><button onclick="location.reload()">RESPAWN</button></div>
+<div id="ui"><b>// NEON CITY</b><br>HP <span id="hp">100</span> Armor <span id="armor">0</span><div class="bar"><div id="hpFill" class="fill"></div></div><div class="bar"><div id="armorFill" class="fill"></div></div>Weapon: <span id="weapon">Pistol</span> Ammo: <span id="ammo">12</span>/<span id="reserve">80</span><br>Grenade: <span id="grenade">Frag</span> x<span id="grenades">3</span><br>Heat: <span id="heat">☆☆☆☆☆</span> Cash: $<span id="cash">0</span> Skill: <span id="skill">0</span><br>Mission: <span id="mission">Press M</span><br>District: <span id="district">Downtown</span><br>Score: <span id="score">0</span> Kills: <span id="kills">0</span></div>
+<canvas id="mini" width="170" height="170"></canvas><div id="cross">+</div><div id="banner"></div><div id="errorBox"></div><div id="help">WASD move/drive · Mouse aim · Click shoot · R reload · E car · Shift sprint/nitro · 1-5 weapons · Q grenade type · G throw · M mission · U upgrade · V10.3 cruise-speed tuning + police radio + mystery loot + richer city props</div>
+
+<script>
+(function(){
+  function showError(msg){
+    const box=document.getElementById('errorBox');
+    if(!box) return;
+    box.style.display='block';
+    box.innerHTML=msg;
+  }
+  window.addEventListener('error', function(e){
+    showError('<b>Launch error:</b><br>'+String(e.message||e.error||'Unknown error')+'<br><br>Use VS Code Live Server or run_windows.bat. Also make sure you are online because Three.js loads from CDN.');
+  });
+  window.addEventListener('unhandledrejection', function(e){
+    showError('<b>Module load error:</b><br>'+String((e.reason&&e.reason.message)||e.reason||'Unknown module error')+'<br><br>Use VS Code Live Server or run_windows.bat. Also make sure you are online because Three.js loads from CDN.');
+  });
+  if(location.protocol==='file:'){
+    window.addEventListener('DOMContentLoaded', function(){
+      showError('<b>You opened the file directly.</b><br>This game must be launched through a local server.<br><br><b>Fix:</b> right-click index.html in VS Code → Open with Live Server, or double-click run_windows.bat.');
+    });
+  }
+})();
+</script>
+<script type="module" src="./src/main.js"></script></body></html>
